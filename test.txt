@@ -1,0 +1,22 @@
+# -*- coding: utf-8 -*-
+
+def codeAnalysis(filename):
+    file = open(filename)
+    codeLine = 0
+    emptyLine = 0
+    commentLine = 0
+    content = file.readline()
+    while content :
+        content = content.strip()
+        if content == '':
+            emptyLine += 1
+        elif content[0] == '#':
+            commentLine += 1
+        else:
+            codeLine += 1
+        content = file.readline()
+    file.close()
+    print codeLine, emptyLine, commentLine
+
+if __name__ == "__main__":
+    codeAnalysis("test.txt")

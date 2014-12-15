@@ -24,6 +24,15 @@ def sieveEratosthenes(n):
     #return all the prime numbers less than n
     return l
 
+# sieve 2
+def sieve(n):
+    is_prime = [False]*2 + [True]*(n-1)
+    for i in xrange(int(n**0.5 + 1.5)): # stop at sqrt(n), add 1.5 because we need stop at (n**0.5+1.5-1)
+        if is_prime[i]:
+            for j in xrange(i*i, n+1, i):
+                is_prime[j] = False
+    return [i for i,prime in enumerate(is_prime) if prime]
 # test 
 print sieveEratosthenes(30)
+print sieve(30)
         
