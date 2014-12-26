@@ -29,8 +29,9 @@ def save_image(images):
     name = 1
     # 查找所有的图片
     for image in images:
-        # 把图片从服务器拷贝到本机上
-        urllib.urlretrieve(image, "image"+"\\"+str(name)+".jpg")
+        # 把图片从服务器拷贝到本机上, 包吃图片格式不变（文件后缀）
+        # 后期可以考虑定制图片保存路径以及文件名格式
+        urllib.urlretrieve(image, "image"+"\\"+str(name)+image[-4:])
         # 名字自动加1
         name += 1
         #print image
